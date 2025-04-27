@@ -4,6 +4,9 @@
 #
 # Alunos: Abmael Batista da Silva (22203744); Jader Theisges
 
+# duvidas:
+# a tabela deve ser implementada de forma separada?
+
 class Token:
     def __init__(self, tipo, valor=None, linha=1, coluna=0):
         self.tipo = tipo
@@ -191,3 +194,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
