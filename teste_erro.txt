@@ -1,0 +1,4 @@
+teste1 = 123
+if valor # 100
+2variavel < resultado
+teste3 $ 500

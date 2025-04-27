@@ -1,0 +1,93 @@
+Este trabalho trata do uso e da implementação de analisadores léxicos e está dividido em duas partes:
+
+    Parte A: Implementação detalhada e demonstração de um analisador léxico baseado em diagramas de transição (autômatos anotados) para caracterizar três tipos de tokens que usualmente são identificados por um analisador léxico:
+
+        Identificadores para (nomes) de variáveis ou de funções: esses identificadores consistem em qualquer sequência ininterrupta de letras e números que comece com uma letra - você deverá informar o lexema relativo a este token como um atributo do token;
+        Constantes numéricas inteiras: sequência ininterrupta de dígitos decimais - você deverá informar o valor numérico relativo a este token como um atributo do token;
+        Operadores relacionais (>,<,=,≥,≤,≠
+
+        )
+
+    Parte B: Implementação com o auxílio do gerador de analisadores léxicos FLEX, e demonstração de uso, de um analisador léxico para uma linguagem dada (a linguagem LSI-2025-1).
+
+Lembre que os diagramas de transição para os três tipos de tokens mencionados na parte A do trabalho estão descritos no material de aula. No material, você vai encontrar também exemplos de uso do analisador léxico FLEX. O FLEX foi desenvolvido para ser utilizado com a linguagem C, mas também existem versões do FLEX para python. Uma versão python simples e fácil de usar é o pacote PLY. Você pode utilizar esta versão para implementar a parte B, se quiser.
+
+    Na parte A, o analisador léxico precisa necessariamente ler caracter por caracter da entrada e deve ser baseado em diagramas de transição (os autômatos com anotação de qual é a string que foi reconhecida, conforme visto em aula).
+    Além disso, uma tabela de símbolos deverá ser implementada. Essa tabela deverá ter uma entrada por cada token Identificador, a fim de permitir a caracterização de palavras-chave que tenham sido rotuladas como identificadores. É justamente essa tabela que permite uma implementação da técnica "maximal munch'", usada para resolver a ambiguidade léxica relativa ao fato das palavras-chave poderem ser confundidas com identificadores de variáveis simples. No início, todas as palavras chave deverão ser inseridas na tabela de símbolos. Desta forma, sempre que um identificador for isolado, o lexer procura por ele na tabela de símbolos: se ele for um daqueles que foram colocados na tabela no início, então trata-se de uma palavra-chave.
+
+O que deve ser entregue?
+
+Cada grupo deverá entregar um conjunto de arquivos com:
+
+    Dois arquivos com as duas implementações pedidas: o analisador léxico simplificado da parte A e o analisador da parte B, com recursos para coletar todos os tokens de um programa escrito na linguagem LSI-2025-1 (descrita em seguida);
+    Um arquivo de entrada correto, sem erros, para o analisador simplificado da parte A (acima);
+    Um arquivo de entrada incorreto, com erros, para o analisador simplificado da parte A (acima) - os erros deverão ser acusados pelo seu analisador;
+    Um arquivo de entrada incorreto, com erros, para o analisador da parte B (acima) - os erros deverão ser acusados pelo seu analisador;
+    Arquivos README com instruções para a execução apropriada de todos os programas desenvolvidos, para uso em um sistema operacional Linux.
+
+O que será avaliado?
+
+Na parte A, será observada a execução do analisador léxico lendo caracter por caracter do input e baseado em diagramas de transição, assim como a construção da tabela de símbolos. Serão inseridos erros léxicos (caracteres estranhos) na entrada que deverão ser capturados pelo analisador léxico. Na parte B, será observada a correta execução e captura de todos os tokens que são especificados na linguagem indicada (LSI-2025-1).
+
+NOTA: a entrada vai consistir apenas de uma sequência de tokens, a serem capturados pelos lexers.
+
+Sobre os programas desenvolvidos
+
+Serão observados os seguintes tópicos relativos aos programas que forem entregues:
+
+    A existência de 4 arquivos de entrada para teste, conforme descrição acima;
+    A execução correta dos programas entregues;
+    A existência de READMEs com instruções de execução;
+    A compilação dos programas desenvolvidos (se houver erros de compilação/ interpretação, então haverá descontos na nota do trabalho).
+
+
+Sobre a entrada e a saída dos dados
+
+Para cada execução, uma única entrada deverá ser dada: o caminho de um arquivo com tokens da linguagem dada.
+
+Exemplo de entrada:   ~/tmp/arvore-binaria-de-busca.lsi 
+
+As seguintes saídas são esperadas para os analisadores léxicos:
+
+    Se não houver erros léxicos: uma lista de tokens (na mesma ordem em que eles ocorrem no arquivo dado na entrada) e uma tabela de símbolos;
+    Se houver erros léxicos: uma mensagem simples de erro léxico indicando a linha e a coluna do arquivo de entrada onde ele ocorre.
+
+
+Apresentação do trabalho
+
+    Os programas podem ser escritos em C (compatível com compilador gcc versão 13.3.0), C++ (compatível com compilador g++ versão 13.3.0), Java (compatível com compilador javac versão 21.0.6) ou Python 3 (compatível com versão 3.12.3) ou Rust (compatível com rustc versão 1.75.0) e devem ser compatíveis com GNU/Linux;
+    É importante que seu programa esteja escrito de maneira a destacar a estrutura subjacente;
+    Cada arquivo entregue deve começar com um cabeçalho contendo pelo menos o nome de todos os integrantes do grupo;
+    Todos os integrantes do grupo deverão estar aptos a responder perguntas sobre o trabalho;
+    Coloque comentários em pontos convenientes do programa, e faça uma saída clara;
+    O trabalho é único por grupo: não copie o programa de outro grupo, não empreste o seu programa para outro grupo, e tome cuidado para que não copiem seu programa sem a sua permissão. Programas envolvidos em cópias terão a nota correspondente dividida pelo número de cópias.
+    Programas simplesmente obtidos da internet terão nota zero (0.0).
+
+
+Gramática para a parte B
+
+Em anexo, você encontrará a gramática LSI-2025-1. Assim como as expressões regulares, as gramáticas também descrevem linguagens. No entanto, as gramáticas são mais poderosas pois podem descrever linguagens que expressões regulares não podem. A gramática abaixo é uma simplificação da gramática X++ de Delamaro (ver referência abaixo). Para a parte B do trabalho, precisamos destacar os tokens. Eles são precisamente os símbolos terminais de LSI-2025-1, os quais estão na cor azul. 
+
+    NOTA: Os símbolos terminais não-triviais são somente os identificadores de variáveis e as num (constantes decimais inteiras).
+    Livro do Delamaro: http://conteudo.icmc.usp.br/pessoas/delamaro/SlidesCompiladores/CompiladoresFinal.pdf
+
+Veja, a seguir, um exemplo de entrada (um código fonte) de acordo com a linguagem descrita pela gramática LSI-2025-1:
+
+def func1(int A, int B) {
+    int C;
+    if (A > 20) {C = A + B;} else {C = A - B;}
+    return C;
+}
+
+def principal() {
+    int X, Y, R;
+    X = 4;
+    Y = 5;
+    R = func1(X, Y);
+    print R;
+    return;
+}
+
+Para este exemplo, a lista de tokens é [def, id, (, int, id, , , int, id, ), {, int, id, ..., return, ;, } ].
+
+A lista de tokens que deve ser elaborada pelo seu analisador léxico deverá ser similar a essa.

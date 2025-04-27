@@ -1,0 +1,5 @@
+teste1 = 123
+if valor >= 100
+variavel2 < resultado
+teste3 <= 500
+x = 42
