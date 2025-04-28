@@ -1,0 +1,26 @@
+def soma(int a, int b) {
+    int resultado;
+    resultado = a + b;
+    return resultado;
+    correto = 1
+}
+
+def main() {
+    int x = 10;
+    int y = 20;
+    int z;
+
+    if (x < y) {
+        print x;
+    } else {
+        print y;
+    }
+
+    z = soma(x, y);
+    if (z != 0) {
+        print correto;
+    }
+
+    return 0;
+}
+
