@@ -1,7 +1,7 @@
 # Trabalho - Parte 1 - Analisador Léxico (Parte B)
 
 **Disciplina:** INE5622 - Introdução a Compiladores
-**Alunos:** Abmael Batista da Silva (22203744); Jader Theisges
+**Alunos:** Abmael Batista da Silva; Jader Theisges 
 
 ## Descrição
 
@@ -29,15 +29,13 @@ python parteB.py <caminho_para_o_arquivo_de_entrada>
 
 1.  **Executando com um arquivo de entrada correto:**
     ```bash
-    python parteB.py parteB_teste_correto.lsi
+    python parteB.py Testes/parteB_teste_correto.lsi
     ```
-    A saída mostrará a lista de tokens reconhecidos e a tabela de símbolos final.
 
 2.  **Executando com um arquivo de entrada contendo erros:**
     ```bash
-    python parteB.py parteB_teste_com_erro.lsi
+    python parteB.py Testes/parteB_teste_com_erro.lsi
     ```
-    A saída mostrará uma mensagem de erro léxico indicando o caractere inválido, a linha e a coluna onde o erro ocorreu.
 
 ## Saída Esperada
 
