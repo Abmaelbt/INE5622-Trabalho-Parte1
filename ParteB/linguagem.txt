@@ -1,0 +1,47 @@
+MAIN → STMT | FLIST | ε
+FLIST → FDEF FLIST | FDEF
+FDEF → def id(PARLIST){STMTLIST}
+PARLIST → int id, PARLIST | int id | ε
+VARLIST → id, VARLIST | id
+STMT → int VARLIST;
+| ATRIBST;
+| PRINTST;
+| RETURNST;
+| IFSTMT
+| {STMTLIST}
+| ;
+ATRIBST → id = EXPR | id = FCALL
+FCALL → id(PARLISTCALL)
+PARLISTCALL → id, PARLISTCALL | id | ε
+PRINTST → print EXPR
+RETURNST → return id | return
+IFSTMT → if(EXPR) {STMT} else {STMT}
+| if(EXPR) {STMT}
+STMTLIST → STMT STMTLIST | STMT
+EXPR → NUMEXPR < NUMEXPR
+| NUMEXPR <= NUMEXPR
+| NUMEXPR > NUMEXPR
+| NUMEXPR >= NUMEXPR
+| NUMEXPR == NUMEXPR
+| NUMEXPR != NUMEXPR
+| NUMEXPR
+NUMEXPR → NUMEXPR + TERM
+| NUMEXPR - TERM
+| TERM
+TERM → TERM * FACTOR
+| TERM / FACTOR
+| FACTOR
+FACTOR → num | (NUMEXPR) | idTotal de não terminais = 17 :
+MAIN STMT FLIST FDEF PARLIST (5)
+STMTLIST VARLIST ATRIBST PRINTST RETURNST (5)
+IFSTMT EXPR FCALL PARLISTCALL (4)
+NUMEXPR TERM FACTOR (3)
+--------------------
+Total de terminais = 25:
+id
+num (2)
+< > <= >= != == (6)
+int if else def print return (6)
++ - * / = ( ) { } , ;   (11)
+--------------------
+id( → (depois de depurar)

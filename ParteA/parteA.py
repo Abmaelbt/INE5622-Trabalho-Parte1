@@ -2,10 +2,7 @@
 #
 # Disciplina: INE5622 - Introdução a Compiladores
 #
-# Alunos: Abmael Batista da Silva (22203744); Jader Theisges
-
-# duvidas:
-# a tabela deve ser implementada de forma separada?
+# Alunos: Abmael Batista da Silva (22203744); Jader Theisges (22215141)
 
 class Token:
     def __init__(self, tipo, valor=None, linha=1, coluna=0):
@@ -25,13 +22,14 @@ class TabelaSimbolos:
         self.inserir_palavras_chave()
 
     def inserir_palavras_chave(self):
-        # Palavras-chave da LSI-2025-1
+        # palavras chave conforme a especificacao
         palavras_chave = [
             'def', 'int', 'return', 'if', 'else', 'print'
         ]
         for palavra in palavras_chave:
             self.inserir(palavra, 'PALAVRA_CHAVE')
 
+# adiciona um novo simbolo na tabela ou incrementa o contador se ja existir
     def inserir(self, lexema, tipo, linha=None):
         if lexema not in self.tabela:
             self.tabela[lexema] = {
@@ -45,6 +43,7 @@ class TabelaSimbolos:
     def buscar(self, lexema):
         return self.tabela.get(lexema)
 
+# formata a tabela de simbolos para impressao
     def __str__(self):
         saida = "\nTabela de Símbolos:\n"
         saida += "-" * 70 + "\n"
@@ -107,14 +106,14 @@ class AnalisadorLexico:
                     self.voltar_char()
                 break
         
-        # Busca na tabela de símbolos
+        # busca na tabela de simbolos
         info = self.tabela_simbolos.buscar(lexema)
         
         if info and info['tipo'] == 'PALAVRA_CHAVE':
             self.tabela_simbolos.inserir(lexema, 'PALAVRA_CHAVE', self.linha)
             return Token('PALAVRA_CHAVE', lexema, self.linha, coluna_inicial)
         
-        # Se não é palavra-chave, é um identificador
+        # se nao e palavra-chave, e um identificador
         self.tabela_simbolos.inserir(lexema, 'ID', self.linha)
         return Token('ID', lexema, self.linha, coluna_inicial)
 
@@ -142,11 +141,13 @@ class AnalisadorLexico:
         
         if char in ['>', '<', '=']:
             prox_char = self.proximo_char()
+            # operadores de dois caracteres (>=, <=, ==, <>)
             if prox_char == '=':
                 return Token('OP', char + prox_char, self.linha, coluna_inicial)
-            if char == '<' and prox_char == '>':  # Para ≠
+            if char == '<' and prox_char == '>':  # para ≠
                 return Token('OP', '≠', self.linha, coluna_inicial)
             self.voltar_char()
+            # operadores de um caractere (>, <, =)
             return Token('OP', char, self.linha, coluna_inicial)
         self.voltar_char()
         return None
@@ -157,13 +158,13 @@ class AnalisadorLexico:
         while self.posicao < len(self.conteudo):
             char = self.proximo_char()
             
-            # Ignora espaços em branco
+            # ignora espaços em branco
             if char.isspace():
                 continue
                 
             self.voltar_char()
             
-            # Tenta reconhecer cada tipo de token
+            # tenta reconhecer cada tipo de token
             token = (self.reconhecer_identificador() or 
                     self.reconhecer_numero() or 
                     self.reconhecer_operador())
@@ -180,7 +181,7 @@ class AnalisadorLexico:
 def main():
     import sys
     if len(sys.argv) != 2:
-        print("Uso: python parteA.py arquivo_entrada.txt")
+        print("Uso correto: python parteA.py arquivo_entrada.txt")
         return
 
     analisador = AnalisadorLexico(sys.argv[1])

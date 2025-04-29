@@ -38,11 +38,6 @@ python parteA.py <caminho_para_o_arquivo_de_entrada>
     ```
     A saída mostrará uma mensagem de erro léxico indicando o caractere inválido, a linha e a coluna onde o erro ocorreu. A análise será interrompida.
 
-## Arquivos de Teste
-
-*   `teste_correto.txt`: Contém um exemplo de código fonte válido para este analisador léxico.
-*   `teste_erro.txt`: Contém exemplos de código fonte com erros léxicos (caracteres inválidos, identificadores malformados).
-
 ## Saída Esperada
 
 *   **Em caso de sucesso:** O programa imprimirá a lista de tokens encontrados, cada um com seu tipo, valor (se aplicável), linha e coluna. Em seguida, imprimirá a tabela de símbolos formatada, mostrando o lexema, tipo, número de ocorrências e a linha da primeira ocorrência.
