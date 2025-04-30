@@ -1,5 +1,5 @@
 ### Disciplina: INE5622 - Introdução a Compiladores
-### Alunos: Abmael Batista da Silva (222037440) e Jader Theisges (22215141)
+### Alunos: Abmael Batista da Silva (222037440), Jader Theisges (22215141) e Henrique Silveira Sato (22201631)
 
 
 # INE5622 - Trabalho Parte 1
