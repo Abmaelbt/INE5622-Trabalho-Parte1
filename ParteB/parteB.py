@@ -2,7 +2,7 @@
 #
 # Disciplina: INE5622 - Introdução a Compiladores
 #
-# Alunos: Abmael Batista da Silva (22203744); Jader Theisges (22215141)
+# Alunos: Abmael Batista da Silva (22203744); Jader Theisges (22215141); Henrique Silveira Sato (22201631)
 
 import ply.lex as lex
 
