@@ -1,7 +1,7 @@
 # Trabalho - Parte 1 - Analisador Léxico (Parte B)
 
 **Disciplina:** INE5622 - Introdução a Compiladores
-**Alunos:** Abmael Batista da Silva; Jader Theisges 
+**Alunos:** Abmael Batista da Silva; Jader Theisges; Henrique Silveira Sato
 
 ## Descrição
 
