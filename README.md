@@ -11,14 +11,14 @@ Este repositório contém a implementação do **Trabalho Parte 1** da disciplin
 O repositório está dividido em duas partes principais:
 
 ### Parte A
-A **Parte A** do trabalho está localizada no diretório [`parte_a/`](./parte_a). Ela contém:
+A **Parte A** do trabalho está localizada no diretório [`ParteA/`](./ParteA). Ela contém:
 
 - A descrição do problema abordado.
 - Os arquivos de código que implementam a solução.
 - Instruções específicas relacionadas à execução desta parte.
 
 ### Parte B
-A **Parte B** do trabalho está localizada no diretório [`parte_b/`](./parte_b). Ela inclui:
+A **Parte B** do trabalho está localizada no diretório [`ParteB/`](./ParteB). Ela inclui:
 
 - A descrição do problema abordado.
 - Os arquivos de código que implementam a solução.
