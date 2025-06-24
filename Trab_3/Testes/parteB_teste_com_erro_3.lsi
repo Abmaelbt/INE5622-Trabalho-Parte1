@@ -1,0 +1,16 @@
+def soma_mais_dois(int a, int b) {
+    int resultado;
+    resultado = a + b;
+    return resultado + 2;
+}
+
+def main() {
+    int x, y;
+    x = 10;
+    y = 20;
+
+    z = soma(x, y);
+    if (z != 0) {
+        print z;
+    }
+}

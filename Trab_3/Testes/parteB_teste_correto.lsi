@@ -1,0 +1,59 @@
+def soma(int x, int y) {
+    int s;
+    s = x + y;
+    return s;
+}
+
+def divide(int x, int y) {
+    int t;
+    t = x / y;
+    return t;
+}
+
+def verifica_maior_igual(int x, int y) {
+    if (x >= y) {
+        return x;
+    } else {
+        return y;
+    }
+}
+
+def main() {
+    int exit_code;
+    int a, b, c;
+    int resultado;
+    int n;
+    n = 2;
+
+    a = 30;
+    b = 20;
+    c = soma(a, b);
+    print c;
+
+    resultado = divide(c, n);
+    print resultado;
+
+    if (verifica_maior_igual(resultado, a) == resultado) {
+        {
+            print resultado;
+            exit_code = 0;
+        }
+    } else {
+        {
+            resultado = resultado + divide(b, n);
+            if (verifica_maior_igual(resultado, a) == resultado) {
+                {
+                    print resultado;
+                    exit_code = 0;
+                }
+            } else {
+                {
+                    print a;
+                    exit_code = 1;
+                }
+            }
+        }
+    }
+
+    return exit_code;
+}
