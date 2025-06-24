@@ -50,11 +50,14 @@ class TabelaSimbolos:
         saida += "| {:<20} | {:<12} | {:<10} | {:<20} |\n".format("Lexema", "Tipo", "Ocorrências", "Linha Primeira Ocorrência")
         saida += "-" * 70 + "\n"
         for lexema, info in self.tabela.items():
+            linha = info['linha_primeira_ocorrencia']
+            if linha is None:
+                linha = ""
             saida += "| {:<20} | {:<12} | {:<10} | {:<20} |\n".format(
                 lexema, 
                 info['tipo'], 
                 info['ocorrencias'],
-                info['linha_primeira_ocorrencia']
+                linha
             )
         saida += "-" * 70
         return saida
