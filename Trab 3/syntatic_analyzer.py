@@ -56,8 +56,8 @@ class Analyzer:
         },
         'FCALL': {
             'LPAREN': ['LPAREN', 'PARLISTCALL', 'RPAREN'],
-            'PLUS': [], 'MINUS': [], 'LT': [], 'LE': [], 'GT': [], 'GE': [], 'EQ': [], 'NE': [], 'RPAREN': [],
-            'SEMICOLON': []
+            'TIMES': [], 'DIVIDE': [], 'PLUS': [], 'MINUS': [], 'LT': [], 'LE': [], 'GT': [], 'GE': [], 'EQ': [],
+            'NE': [], 'RPAREN': [], 'SEMICOLON': []
         },
         'PARLISTCALL': {
             'ID': ['ID', "PARLISTCALL'"],
