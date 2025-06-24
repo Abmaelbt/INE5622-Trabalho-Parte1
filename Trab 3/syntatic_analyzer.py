@@ -52,15 +52,12 @@ class Analyzer:
             'SEMICOLON': ['SEMICOLON']
         },
         'ATRIBST': {
-            'ID': ['ID', 'ASSIGN', 'ATRIBVAL']
-        },
-        'ATRIBVAL': {
-            'ID': ['FCALL'],
-            'NUM': ['EXPR'],
-            'LPAREN': ['EXPR']
+            'ID': ['ID', 'ASSIGN', 'EXPR']
         },
         'FCALL': {
-            'ID': ['ID', 'LPAREN', 'PARLISTCALL', 'RPAREN']
+            'LPAREN': ['LPAREN', 'PARLISTCALL', 'RPAREN'],
+            'PLUS': [], 'MINUS': [], 'LT': [], 'LE': [], 'GT': [], 'GE': [], 'EQ': [], 'NE': [], 'RPAREN': [],
+            'SEMICOLON': []
         },
         'PARLISTCALL': {
             'ID': ['ID', "PARLISTCALL'"],
@@ -84,7 +81,7 @@ class Analyzer:
             'IF': ['IF', 'LPAREN', 'EXPR', 'RPAREN', 'LBRACE', 'STMT', 'RBRACE', 'IFELSTMT']
         },
         'IFELSTMT': {
-            'ELSE': ['ELSE', 'LBRACE', 'IFSTMT', 'RBRACE'],
+            'ELSE': ['ELSE', 'LBRACE', 'STMT', 'RBRACE'],
             'INT': [], 'ID': [], 'PRINT': [], 'RETURN': [], 'IF': [], 'LBRACE': [], 'SEMICOLON': [], 'RBRACE': [], '$': []
         },
         'STMTLIST': {
@@ -141,7 +138,7 @@ class Analyzer:
             'PLUS': [], 'MINUS': [], 'LT': [], 'LE': [], 'GT': [], 'GE': [], 'EQ': [], 'NE': [], 'RPAREN': [], 'SEMICOLON': []
         },
         'FACTOR': {
-            'ID': ['ID'],
+            'ID': ['ID', 'FCALL'],
             'NUM': ['NUM'],
             'LPAREN': ['LPAREN', 'NUMEXPR', 'RPAREN']
         }

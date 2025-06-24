@@ -12,14 +12,14 @@ def main() {
     if (x < y) {
         print x;
     } else {
-        print y;
+        if (x > y) {
+            print y;
+        }
     }
 
     z = soma(x, y);
     if (z != 0) {
         print correto;
     }
-
-    return 0;
 }
 
