@@ -2,24 +2,21 @@ def soma(int a, int b) {
     int resultado;
     resultado = a + b;
     return resultado;
-    correto = 1
 }
 
 def main() {
-    int x = 10;
-    int y = 20;
-    int z;
-    #
+    int x, y, z;
+    x = 10;
+    y = 20;
+
     if (x < y) {
         print x;
     } else {
         print y;
     }
-    @
-    z = soma(x, y);
+
+    z = soma(x, y)
     if (z != 0) {
         print correto;
     }
-    "teste de string com aspas duplas"
-    return 0;
 }
